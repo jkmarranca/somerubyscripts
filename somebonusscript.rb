@@ -30,8 +30,14 @@ File.open(ARGV[0].to_s).each_line do |line|# Read in the file via command
 	else
 		file = File.new("output.csv", "w")
 	end
-	file.print "\n #{column.join(",")}"
-	file.close
+	
+	if (x == 0)
+		file.print "#{column.join(",")}"
+		file.close
+	else
+		file.print "\n #{column.join(",")}"
+		file.close
+	end
 
 	# Every 100 lines, write update messages to STDERR that inform the user of
 	# the script of how many lines have been parsed in total
